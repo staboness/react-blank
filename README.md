@@ -1,3 +1,4 @@
+Blank react project with TS,JSX,Webpack configs
 ### `yarn install`
 Install all dependencies, that includes css\scss loader, typescript loader, babel loader.
 ### `yarn start`
