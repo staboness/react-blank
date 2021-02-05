@@ -26,20 +26,24 @@ module.exports = {
                 loader: 'ts-loader'
             },
             {
-                test: /\.(css|scss)$/,
+                test: /\.(css|scss|less)$/,
                 use: [
-                    'style-loader',
-                    {
+                    'style-loader', 'css-loader'
+                    /* {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
                             modules: true
                         }
-                    }
+                    } */
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.less$/,
+                loader: "less-loader",
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|otf)$/i,
                 use: [{
                     loader: 'file-loader',
                 }],
