@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
+        publicPath: '/'
     },
     module: {
         rules: [{
@@ -62,6 +63,7 @@ module.exports = {
         disableHostCheck: true,
         contentBase: './build',
         watchContentBase: true,
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
 };
