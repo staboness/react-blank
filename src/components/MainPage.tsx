@@ -1,10 +1,10 @@
-import styles from "./MainPage.css";
+import "./MainPage.css";
 import React from "react";
 
 function MainPage() {
   return (
-    <div className={styles.app}>
-      <header className={styles.appHeader}>
+    <div className="app">
+      <header className="appHeader">
         <p>React ready development snippet</p>
       </header>
     </div>
