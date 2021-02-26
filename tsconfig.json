@@ -11,7 +11,8 @@
     "esModuleInterop": true,
     "declaration": true,
     "noImplicitThis": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+	"moduleResolution": "node"
   },
   "include": ["./src/*", "declaration.d.ts"],
   "exclude": ["node_modules"]
