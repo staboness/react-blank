@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -8,6 +9,24 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
         publicPath: '/'
+    },
+    node: {
+        global: true
+    },
+    resolve: {
+        alias: {},
+        fallback: {
+            "fs": false,
+            "tls": false,
+            "net": false,
+            "path": false,
+            "http": false,
+            "https": false,
+            "crypto": false,
+            "stream": require.resolve("stream-browserify"),
+            "vm": require.resolve("vm-browserify"),
+            "os": require.resolve("os-browserify/browser")
+        }
     },
     module: {
         rules: [{
@@ -44,7 +63,7 @@ module.exports = {
                 loader: "less-loader",
             },
             {
-                test: /\.(png|jpe?g|gif|svg|otf)$/i,
+                test: /\.(png|jpe?g|gif|svg|otf|ttf|eot|woff2|woff)$/i,
                 use: [{
                     loader: 'file-loader',
                 }],
@@ -57,6 +76,11 @@ module.exports = {
             template: './public/index.html',
             inject: false
         }),
+        //Crucial for some libs
+        new webpack.ProvidePlugin({
+            process: "process/browser.js",
+            Buffer: ['buffer', 'Buffer']
+        })
     ],
     devtool: 'inline-source-map',
     devServer: {
